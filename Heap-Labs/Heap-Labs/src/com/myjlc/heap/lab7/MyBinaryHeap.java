@@ -1,0 +1,69 @@
+package com.myjlc.heap.lab7;
+
+public class MyBinaryHeap {
+
+	int arr[];
+	int size;
+	int capacity;
+
+	public MyBinaryHeap(int arr[]) {
+		this.arr = arr;
+		this.size = arr.length;
+		this.capacity = arr.length;
+	}
+
+	public MyBinaryHeap(int capacity) {
+		this.size = 0;
+		this.capacity = capacity;
+		this.arr = new int[capacity];
+	}
+
+	public int left(int i) {
+		return (2 * i + 1);
+	}
+
+	public int right(int i) {
+		return (2 * i + 2);
+	}
+
+	public int parent(int i) {
+		return (i - 1) / 2;
+	}
+
+	public void buildHeap() {
+		
+		for(int i= (size-2)/2; i>=0;i--) {
+			heapify(i);
+		}
+	}
+	
+	void heapify(int i) {
+		int left = left(i); 
+		int right = right(i);
+		
+		int smallest = i;
+		
+		if(left<size && arr[left]<arr[i]) {
+			smallest = left;
+		}
+		
+		if(right<size && arr[right]<arr[smallest]) {
+			smallest = right;
+		}
+		
+		if(smallest!=i) {
+			int temp = arr[i];
+			 arr[i] =  arr[smallest];
+			 arr[smallest] = temp;
+			 heapify(smallest);
+		}
+	}
+	
+	public void printHeap() {
+		for (int i = 0; i < size; i++) {
+			System.out.print(arr[i] + "\t");
+		}
+		System.out.println("");
+	}
+
+}

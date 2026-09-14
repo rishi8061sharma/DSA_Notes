@@ -1,0 +1,108 @@
+============================
+Module 14 - Sorting Algorithms - Part 3
+============================
+
+2) Selection Sort:
+==============
+=> Easy to implement  the Selection sort
+=> Selection sort works well for small Arrays/Lists.
+=> Selection sort is an in-place sorting algorithm. ( i.e No Extra Space required)
+=> Selection sort is not a Stable sorting algorithm.( i.e Original Order of elements will not be maintained)
+
+Algorithm
+=========
+1. Find the minimum value in the list
+2. Swap it with the value in the current position
+3. Repeat this process for all the elements until the entire array is sorted
+
+*** This algorithm is called selection sort since it repeatedly selects the smallest element.***
+
+
+Performance
+============
+a) Worst case complexity 		: 	O(n2)
+b) Best case complexity 		: 	O(n2)
+c) Average case complexity 		: 	O(n2)
+d) Worst case space complexity	: 	O(1) auxiliary
+
+Lab 13: Selection Sort
+
+3) Insertion Sort:
+==============
+=> Insertion sort is a simple and efficient comparison sort. 
+=> Insertion sort is an in-place sorting algorithm. 
+=> Insertion sort is a Stable sorting algorithm. 
+=> In this algorithm, each iteration  
+	* Removes an element from the input data, 
+	* Inserts it into the correct position in the already-sorted list.
+
+=> You will see best-case time-complexity as O(n) when the Array is Sorted 
+
+Algorithm
+=========
+1. Consider some part is already Sorted
+2. Take ith element and Insert it in the Correct position
+3. Repeat this process for all the elements until the entire array is sorted
+
+*** This algorithm is called Insertion Sort since it repeatedly Inserts the Element in Correct position in the Sorted part..***
+
+Performance
+============
+a) Worst case complexity 		: 	O(n2)
+b) Best case complexity 		: 	O(n) ***
+c) Average case complexity 		: 	O(n2)
+d) Worst case space complexity	: 	O(1) auxiliary
+
+Lab14 : Insertion Sort
+
+
+4) Merge Sort:
+==============
+=> Merge sort is an example of the divide and conquer strategy.
+
+=> Merging is the process of combining two sorted arrays to make one bigger sorted array
+
+=>  Merge sort is Quick sort’s complement
+=> Merge sort accesses the data in a sequential manner
+=> This algorithm is used for sorting a linked list
+=> Merge sort divides the list into two parts; then each part is conquered individually. 
+=> Merge sort starts with the small arrays and finishes with the largest one. 
+
+=> Merge sort is not an in-place sorting algorithm. (Needs Extra Space)
+=> Merge sort is a Stable sorting algorithm. 
+
+
+Algorithm
+=========
+1. Divide the Input List into two parts.
+2. Solve each part recursively. 
+3. After solving the sub problems, they are merged by scanning the resultant sub problems.
+
+*** This algorithm is called Mrge Sort since it is merging two sorted arrays to make one bigger sorted array..***
+
+Performance
+============
+a) Worst case complexity 		: 	O(nlogn)
+b) Best case complexity 		: 	O(nlogn)
+c) Average case complexity 		: 	O(nlogn)
+d) Worst case space complexity	: 	O(n) auxiliary
+
+
+Lab 15 :  Merge two Sorted Arrays
+
+Lab16 : Implement Merge Function
+
+Lab17 : Merge Sort Algorithm
+
+
+
+TOGAF
+System Design
+GOF
+
+
+
+
+
+
+

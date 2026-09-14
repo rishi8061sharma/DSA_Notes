@@ -1,0 +1,185 @@
+============================
+Module 14 - Sorting Algorithms
+============================
+
+1) Introduction
+===============
+=> Sorting Algorithm is used to arrange elements of an array/list in an order specified.
+
+=> Following are the list of Sorting Algorithms
+1) Bubble Sort
+2) Selection Sort
+3) Insertion Sort
+4) Merge Sort
+5) Quicksort
+6) Cycle Sort
+7) Heap Sort
+8) Counting Sort
+9) Radix Sort
+10) Bucket Sort
+11) Shell Sort
+
+2) Complexity of Sorting Algorithms
+============================
+a) Bubble Sort:
+------------------
+Time Complexity - Best	n
+Time Complexity - Worst	n2
+Time Complexity - Average	n2
+Space Complexity		1
+
+
+b) Selection Sort:
+-------------------
+Time Complexity - Best	n2
+Time Complexity - Worst	n2
+Time Complexity - Average	n2
+Space Complexity		1
+
+
+c) Insertion Sort	
+-------------------
+Time Complexity - Best	n
+Time Complexity - Worst	n2
+Time Complexity - Average	n2
+Space Complexity		1
+
+d) Merge Sort:
+-------------------
+Time Complexity - Best	nlog n	
+Time Complexity - Worst	nlog n	
+Time Complexity - Average	nlog n	
+Space Complexity		n
+
+e) Quicksort
+-------------------
+Time Complexity - Best	nlog n	
+Time Complexity - Worst	n2
+Time Complexity - Average	nlog n	
+Space Complexity		log n	
+
+
+3) Stability of Sorting Algorithm
+============================
+a) Stable Sorting Algorithms
+b) Unstable Sorting Algorithms
+
+a) Stable Sorting Algorithms:
+-----------------------------------------
+=>If equal elements are not reordered as a result of the sort then that sorting algorithm is Stable.
+
+Ex:
+Bubble Sort
+Insertion Sort
+Merge Sort
+Counting Sort
+Radix Sort	
+Bucket Sort
+
+b) Unstable Sorting Algorithms:
+-----------------------------------------
+=>If equal elements are reordered as a result of the sort then that sorting algorithm is Unstable.
+
+Ex:
+Selection Sort
+Quicksort	
+Heap Sort	
+Shell Sort	
+
+4) Sorting in Java
+===============
+a) Arrays.sort()
+b) Collections.sort()
+
+a) Arrays.sort():
+----------------------
+i) For Array of Primitives( int,char,double etc) 
+ii) For Array of Objects( Integer, Student, Customer etc)
+
+i) For Array of Primitives( int,char,double etc):
+--------------------------------------------------------------
+=> Sorts the specified array into ascending numerical order.
+=> Sorting algorithm is a Dual-Pivot Quicksort 
+=> This algorithm offers O(n log(n)) performance on many data sets that cause other quicksorts to degrade to O(n2)performance
+
+ii) For Array of Objects( Integer, Student, Customer etc)
+----------------------------------------------------------------------------
+=> Sorts the specified array of objects into ascending order, according to the natural ordering of its elements. 
+=> All elements in the array must implement the Comparable interface.
+=> This sort is guaranteed to be stable: equal elements will not be reordered as a result of the sort.
+=> Sorting algorithm is a MergeSort 
+=> This algorithm offers O(n log(n)) performance 
+
+***** Arrays.sort()  uses QuickSort for Array of Primities 
+***** Arrays.sort()  uses MergeSort for Array of Objects
+
+b) Collections.sort()
+---------------------------
+i) For Lists (ArrayList, LinkedList etc)
+----------------------------------------------------
+=> Sorts the specified List of objects into ascending order, according to the natural ordering of its elements. 
+=> All elements in the array must implement the Comparable interface.
+=> This sort is guaranteed to be stable: equal elements will not be reordered as a result of the sort.
+=> Sorting algorithm is a MergeSort 
+=> This algorithm offers O(n log(n)) performance 
+
+***** Collections.sort()  uses MergeSort for Collection of Objects
+
+5) Arrays.sort()
+===============
+
+Lab 1: Sort the Array
+
+Lab 2: Sort the Sub-Array
+
+Lab 3: 
+Lab 4: 
+Lab 5: 
+Lab 6: 
+Lab 7: 
+
+6) Collections.sort()
+================
+Lab 8: 
+Lab 9: 
+Lab 10: 
+
+
+Implementing Sorting Algorithms
+============================
+1) Bubble Sort:
+--------------------
+Time Complexity - Best	n
+Time Complexity - Worst	n2
+Time Complexity - Average	n2
+Space Complexity		1
+
+* In 1st Pass, we will get Largest Element and place that in its Final Position
+* In 2nd Pass, we will get 2nd Largest Element and place that in  its Final Position
+so on
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
