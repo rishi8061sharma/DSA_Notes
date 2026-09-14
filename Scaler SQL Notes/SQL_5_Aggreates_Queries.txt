@@ -1,0 +1,54 @@
+=> 1) Retrieve the total revenue earned by each film category, 
+but only include categories where the total revenue is greater than $1,000. 
+Order the results by revenue in descending order.
+
+Ans: 
+SELECT cat.name AS category, SUM(pay.amount) AS total_revenue 
+from category AS cat
+JOIN film_category AS fc ON fc.category_id = cat.category_id
+JOIN inventory AS inv ON  fc.film_id = inv.film_id
+JOIN rental AS ren ON inv.inventory_id = ren.inventory_id
+JOIN payment AS pay ON ren.rental_id = pay.rental_id
+GROUP BY cat.name
+HAVING SUM(pay.amount) > 1000
+
+
+
+=> 2) List the customers who have made at least 30 rentals, 
+and for each of these customers, display their customer ID and the count of rentals they've made
+
+
+/*
+List the customers who have made at least 30 rentals, and for each of these customers, 
+display their customer ID and the count of rentals they've made
+*/
+USE sakila;
+
+SELECT 
+    cust.customer_id,
+    COUNT(ren.rental_id) AS rental_count
+FROM customer cust
+JOIN rental ren 
+    ON cust.customer_id = ren.customer_id
+GROUP BY cust.customer_id
+HAVING COUNT(ren.rental_id) >= 30;
+
+/*OR*/ 
+
+SELECT 
+    customer_id,
+    COUNT(*) AS rental_count
+FROM rental
+GROUP BY customer_id
+HAVING COUNT(*) >= 30;
+
+
+
+=> 3) Find rental_duration which is rental_duration of more than 200 movies
+
+SELECT 
+rental_duration,
+COUNT(*) AS movie_count
+FROM film f
+GROUP BY f.rental_duration 
+HAVING COUNT(*) > 200;

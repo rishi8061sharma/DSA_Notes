@@ -1,0 +1,203 @@
+https://discord.gg/ugjgesEDrC fZ7uwkEf6D
+
+https://alok.engineering/#/noticeboard/academy-be-lld-and-dev-1-10-april26-mwf-e
+
+https://github.com/singhalok641/LLD1_Apr_2026
+
+https://alok.engineering/#/
+
+
+https://discord.gg/ugjgesEDrC 
+https://alok.engineering/#/concurrency-viz
+
+
+https://docs.google.com/document/d/1Vmb7kr7Ve1pwWb7yLUPJ5pJ2TYvXI9NCsWVUzc81d-0/edit?tab=t.0
+
+
+https://docs.oracle.com/javase/tutorial/essential/concurrency/
+
+
+
+https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/BlockingQueue.html
+
+
+https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Semaphore.html
+
+
+LeetCode Concurrency Problems: #1114, #1115, #1116, #1117
+
+
+https://docs.google.com/document/d/1MDN3W3su7a1FM-yuxqh8LF5hAEi9MV1oDvJ892YtEZQ/edit?tab=t.0#heading=h.vpc0ymjtodv7
+
+
+https://docs.google.com/document/d/1bHqpkQwyRfJJNrBdvvmHtIgP15cFxPTjAqOrPLBnHiQ/edit?pli=1&tab=t.0
+
+
+
+https://docs.google.com/document/d/1MDN3W3su7a1FM-yuxqh8LF5hAEi9MV1oDvJ892YtEZQ/edit?tab=t.0#heading=h.vpc0ymjtodv7
+
+
+https://refactoring.guru/design-patterns/adapter
+
+
+https://refactoring.guru/design-patterns/facade
+
+
+https://github.com/singhalok641/ProductServiceNovember2024
+
+
+https://scalerailabs.com/
+
+https://alok.engineering/#/
+
+https://github.com/singhalok641/LLD1_Apr_2026/tree/main/src/main/java/com/example/lld1_apr_2026/inventoryManagementSystem
+
+
+https://docs.google.com/document/d/1MDN3W3su7a1FM-yuxqh8LF5hAEi9MV1oDvJ892YtEZQ/edit?tab=t.0#heading=h.vpc0ymjtodv7
+
+
+
+https://alok.engineering/#/section/lld
+
+
+https://github.com/singhalok641/LLD1_Apr_2026/blob/main/src/main/java/com/example/lld1_apr_2026/streams/StreamsClient.java
+
+
+https://alok.engineering/#/collections
+
+
+
+https://docs.google.com/document/d/16hU8CReMjgs3dPsbsmbPrONzB2DutOC9qPzEJ8cbAqw/edit?tab=t.0#heading=h.94o1ziaksa9v
+
+
+https://github.com/rishi8061sharma/LLD2_May_2026/tree/main/src/main/java/org/example/designpatterns/adapter
+
+
+https://refactoring.guru/design-patterns/catalog
+
+
+https://github.com/singhalok641/LLD2_May_2026/tree/main/src/main/java/org/example/designpatterns
+
+
+https://www.drawio.com/docs/diagram-types/uml/class-diagrams/
+
+https://www.lucidchart.com/pages/landing/uml-diagram-software?utm_source=google&utm_medium=cpc&utm_campaign=chart_en_tier1_desktop_search_strategic-tier2_phrase&km_CPC_CampaignId=16533303082&km_CPC_AdGroupID=131266825661&km_CPC_Keyword=class%20diagram%20tool&km_CPC_MatchType=p&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=587016816705&km_CPC_TargetID=kwd-12309975811&km_CPC_Country=9064674&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gad_source=1&gad_campaignid=16533303082&gbraid=0AAAAADLdSjCUh-Zm9_sLTvO97LfLoNO9-&gclid=Cj0KCQjwi8nRBhDhARIsAHZf_pb5RAsQRC4kMM1AVnxrsZFCpuDkoZDuPP7HKRvvaxm1PpO7IPZqW74aAgQ0EALw_wcB
+
+https://alok.engineering/#/noticeboard/academy-be-lld-and-dev-1-10-april26-mwf-e
+
+https://www.youtube.com/watch?v=fODT0ldeBiU
+
+https://github.com/singhalok641/LLD3_Jun_2026/tree/main/src/main/java/org/example/pen
+
+https://drive.google.com/drive/folders/1ijyvZRvbMZ-tSIYrsy4g203pinLISVKO
+
+https://www.scaler.com/meetings/soft-skills/j/a/uZs8lr7B9mbkUXFExQz97zpYs14bbA3D
+
+https://www.drawio.com/docs/diagram-types/uml/communication-diagrams/
+
+
+https://www.scaler.com/academy/mentee-dashboard/class/549852/session?joinSession=1
+
+
+https://github.com/rishi8061sharma/awesome-low-level-design
+
+For folks who are starting their careers in tech in 2026:
+
+This video offers a thoughtful perspective if you’re feeling confused, overwhelmed, or directionless about your path. It’s undeniably a challenging time to be a software engineer, especially for new graduates entering the industry.
+
+The video highlights a few practical things you could consider doing to navigate the current landscape. I found it insightful and wanted to share it with the wider community.
+
+One thing that stood out to me: while tools and trends continue to evolve rapidly, the fundamentals remain incredibly important. Strong problem-solving skills, a solid understanding of computer science concepts, and the ability to learn continuously are still highly relevant.
+
+Hope this helps someone who’s trying to figure out their next steps. Feel free to share your own thoughts and experiences as well.
+
+Link: https://youtu.be/0QXzV2T9p20?is=-ShJ3DTLpc31RBLK
+
+ https://youtu.be/0QXzV2T9p20?is=-ShJ3DTLpc31RBLK
+ 
+Also, this one is a very good take on the fundamentals and the importance of designing good software: 
+
+https://youtu.be/v4F1gFy-hqg?is=VlHCpC9zu0K7MwyM
+
+
+https://alok.engineering/#/section/lld
+
+
+https://www.jetbrains.com/idea/download/](https://www.jetbrains.com/idea/download/
+
+https://sites.google.com/scaler.com/interview-prep-academy/home
+
+Behavioural and Interview Prep
+Behavioral Round Preparation: https://sites.google.com/scaler.com/interview-prep-academy/behavioural-round-prep Interview Preparation Skill Test: https://sites.google.com/scaler.com/interview-prep-academy/interview-preparation-test Resume Repository: https://sites.google.com/scaler.com/interview-prep-academy/resume-repository Request Interview Packet: Typeform Link Interview Questions Booklet: https://sites.google.com/scaler.com/interview-prep-academy/questions-booklet Job Listings (regularly updated): https://sites.google.com/scaler.com/interview-prep-academy/jobs
+
+
+https://www.youtube.com/watch?v=fODT0ldeBiU
+Low-Level Design Interview: Design an Elevator w/ a Ex-Meta Staff Engineer
+
+
+
+Floating Point Precision
+
+Do we need volatile Single ton Object for DCL
+Great question about a classic Java concurrency topic.
+Double-Checked Locking (DCL) and volatile
+Yes, volatile is required for DCL to work correctly in Java. Without it, DCL is broken — even though it looks safe.
+
+Why volatile is Necessary
+Without volatile, the JVM and CPU can reorder instructions. Object creation in Java is not atomic — it involves three steps:
+
+Allocate memory
+Initialize the object
+Assign the reference to the variable
+
+Without volatile, step 3 can be reordered before step 2. So another thread can see a non-null but partially initialized object — and skip the synchronized block thinking the instance is ready.
+
+Broken DCL (without volatile)
+public class Singleton {
+    private static Singleton instance; // ❌ Missing volatile
+
+    public static Singleton getInstance() {
+        if (instance == null) {               // Thread B sees non-null here...
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton(); // ...but object isn't fully initialized yet
+                }
+            }
+        }
+        return instance; // Thread B returns corrupt object
+    }
+}
+
+Correct DCL (with volatile)
+public class Singleton {
+    private static volatile Singleton instance; // ✅ volatile ensures visibility + ordering
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            synchronized (Singleton.class) {
+                if (instance == null) {
+                    instance = new Singleton();
+                }
+            }
+        }
+        return instance;
+    }
+}
+
+What volatile Guarantees
+GuaranteeEffectVisibilityWrite to instance is immediately visible to all threadsOrderingObject is fully constructed before the reference is publishedNo cachingThreads always read from main memory, not CPU cache
+Note: volatile does not give you atomicity for compound operations — but for a reference assignment (single write), it's sufficient here.
+
+
+
+npx create vite@latest folderName -- --template react
+
+
+https://alok.engineering/#/splitwise
+
+
+https://companion.scaler.com/interview-experiences?company=Idexcel%20technologies%20&role=Java%20Fullstack%20Engineer
+
+
+
+https://github.com/tssovi/grokking-the-object-oriented-design-interview/tree/master/object-oriented-design-case-studies

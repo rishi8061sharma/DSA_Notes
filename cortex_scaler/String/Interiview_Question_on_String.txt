@@ -1,0 +1,1350 @@
+Immutability: Explain the concept of string immutability in [Programming Language of Choice, e.g., Java/Python]. What are the primary benefits and drawbacks of this design?
+
+Ans
+
+If you're preparing for a **Java interview**, you can answer this like this:
+
+### 1. String Immutability in Java
+
+In Java, a `String` is **immutable**, which means once a `String` object is created, its value **cannot be changed**.
+
+For example:
+
+```java
+String s = "Hello";
+s = s + " World";
+```
+
+It may look like we are modifying `s`, but we are actually creating a **new String object**:
+
+```text
+"Hello"          → original String
+"Hello World"    → new String
+```
+
+The original `"Hello"` object remains unchanged.
+
+### Why is String immutable?
+
+Java designed `String` as immutable mainly for:
+
+1. **Security**
+2. **String Pool optimization**
+3. **Thread safety**
+4. **HashCode caching**
+
+---
+
+### 1. Security
+
+Strings are commonly used for sensitive information such as:
+
+```java
+String username = "admin";
+String filePath = "/etc/config";
+String url = "https://example.com";
+```
+
+If strings were mutable, another part of the application could potentially modify the value after it had been validated.
+
+For example:
+
+```java
+String path = "/home/user/file.txt";
+```
+
+If the value could change after security validation, it could create security problems.
+
+---
+
+### 2. String Pool
+
+Java maintains a **String Constant Pool**.
+
+```java
+String s1 = "Hello";
+String s2 = "Hello";
+```
+
+Both can point to the same String object:
+
+```text
+s1 ─────┐
+        ↓
+      "Hello"
+        ↑
+s2 ─────┘
+```
+
+Because strings are immutable, Java can safely reuse the same object.
+
+If strings were mutable, changing `s1` could unexpectedly change `s2`.
+
+---
+
+### 3. Thread Safety
+
+Immutable objects are naturally **thread-safe** because their state cannot change.
+
+Multiple threads can safely access:
+
+```java
+String name = "Rishi";
+```
+
+without synchronization.
+
+---
+
+### 4. HashMap / HashSet
+
+Strings are frequently used as keys:
+
+```java
+Map<String, Integer> map = new HashMap<>();
+
+map.put("Java", 10);
+```
+
+Hash-based collections depend on the object's `hashCode()` remaining consistent.
+
+Because a String cannot change after creation, its hash code remains stable.
+
+---
+
+## Benefits of String Immutability
+
+| Benefit        | Explanation                               |
+| -------------- | ----------------------------------------- |
+| Security       | Values cannot be changed unexpectedly     |
+| Thread-safe    | Multiple threads can safely share Strings |
+| String Pool    | JVM can reuse String objects              |
+| HashMap keys   | Hash code remains stable                  |
+| Caching        | String hashCode can be cached             |
+| Predictability | Once created, the value never changes     |
+
+---
+
+## Drawback
+
+The main drawback is **extra object creation** when performing many modifications.
+
+For example:
+
+```java
+String s = "";
+
+for (int i = 0; i < 1000; i++) {
+    s = s + i;
+}
+```
+
+Because String is immutable, every concatenation can create a new String object.
+
+This can cause:
+
+```text
+More objects
+     ↓
+More memory usage
+     ↓
+More Garbage Collection
+     ↓
+Poor performance
+```
+
+For repeated modifications, use `StringBuilder`:
+
+```java
+StringBuilder sb = new StringBuilder();
+
+for (int i = 0; i < 1000; i++) {
+    sb.append(i);
+}
+
+String result = sb.toString();
+```
+
+### Interview-ready answer
+
+> **"String is immutable in Java, meaning once a String object is created, its value cannot be changed. Any operation that appears to modify a String actually creates a new String object. Immutability provides security, thread safety, safe String Pool sharing, and stable hash codes when Strings are used as HashMap keys. The main drawback is that repeated String modifications can create many temporary objects and cause performance and memory overhead. For such cases, we use StringBuilder or StringBuffer."**
+
+One important senior-level point: **`StringBuilder` is generally preferred for single-threaded string construction, while `StringBuffer` provides synchronization for legacy/multi-threaded use cases.**
+
+
+
+2. Encoding: Describe the difference between ASCII and UTF-8. Why is UTF-8 the preferred standard for modern web development?
+
+Ans For a **Java / senior software engineer interview**, you can explain it like this:
+
+## ASCII vs UTF-8
+
+### 1. ASCII
+
+**ASCII (American Standard Code for Information Interchange)** is an older character encoding standard.
+
+It uses **7 bits**, so it can represent:
+
+```text
+2⁷ = 128 characters
+```
+
+It includes:
+
+```text
+A-Z
+a-z
+0-9
+Special characters
+Control characters
+```
+
+For example:
+
+```text
+'A' = 65
+'a' = 97
+'0' = 48
+```
+
+ASCII mainly supports **English characters**.
+
+---
+
+### 2. UTF-8
+
+**UTF-8 (Unicode Transformation Format - 8 bit)** is a Unicode encoding that can represent characters from virtually all writing systems.
+
+UTF-8 uses **1 to 4 bytes per character**.
+
+For example:
+
+```text
+English:
+A → 1 byte
+
+European characters:
+é → 2 bytes
+
+Many Asian characters:
+中 → 3 bytes
+
+Some emojis:
+😀 → 4 bytes
+```
+
+So unlike ASCII, UTF-8 supports:
+
+```text
+English
+Hindi
+Chinese
+Japanese
+Arabic
+Cyrillic
+Emoji
+...
+```
+
+---
+
+## Key Difference
+
+| Feature                        | ASCII   | UTF-8                          |
+| ------------------------------ | ------- | ------------------------------ |
+| Standard                       | Older   | Modern Unicode encoding        |
+| Bits/bytes                     | 7 bits  | 1–4 bytes                      |
+| Characters                     | 128     | Millions of Unicode characters |
+| English                        | ✅       | ✅                              |
+| Hindi                          | ❌       | ✅                              |
+| Chinese                        | ❌       | ✅                              |
+| Emoji                          | ❌       | ✅                              |
+| Backward compatible with ASCII | —       | ✅                              |
+| Web usage                      | Limited | Standard/preferred             |
+
+### Important point
+
+The first **128 UTF-8 code points are exactly the same as ASCII**.
+
+For example:
+
+```text
+ASCII:  A = 65
+UTF-8:  A = 65
+```
+
+This makes UTF-8 backward-compatible with ASCII for basic English text.
+
+---
+
+# Why is UTF-8 preferred for modern web development?
+
+### 1. Supports international languages
+
+The web is global, so applications need to support different languages.
+
+For example:
+
+```text
+English  → Hello
+Hindi    → नमस्ते
+Chinese  → 你好
+Japanese → こんにちは
+Arabic   → مرحبا
+```
+
+UTF-8 supports all of these.
+
+---
+
+### 2. Backward compatible with ASCII
+
+Existing ASCII text works directly with UTF-8.
+
+This made migration from older ASCII-based systems much easier.
+
+---
+
+### 3. Efficient for English
+
+For common English characters, UTF-8 uses only **1 byte**.
+
+For example:
+
+```text
+Hello
+```
+
+uses 5 bytes in UTF-8.
+
+This is efficient compared with fixed-width encodings that might use more bytes for every character.
+
+---
+
+### 4. Standard for the Web
+
+Modern HTML documents typically specify:
+
+```html
+<meta charset="UTF-8">
+```
+
+HTTP responses can also specify UTF-8 through the `Content-Type` header:
+
+```text
+Content-Type: text/html; charset=UTF-8
+```
+
+This helps browsers correctly interpret the content.
+
+---
+
+### 5. Supports emoji and modern symbols
+
+For example:
+
+```text
+😀 🚀 ❤️ ₹ © ™
+```
+
+UTF-8 can represent these characters, whereas ASCII cannot.
+
+---
+
+## Interview-ready answer
+
+> **"ASCII is an older 7-bit character encoding that supports only 128 characters, primarily English letters, digits, and control characters. UTF-8 is a Unicode encoding that uses 1 to 4 bytes per character and supports virtually all languages, symbols, and emojis. UTF-8 is preferred for modern web development because it is backward compatible with ASCII, efficient for English text, supports international languages, and is the dominant character encoding used on the modern web."**
+
+### Senior-level point to remember
+
+Don't say **"UTF-8 uses 8 bits per character."** That's a common interview mistake.
+
+UTF-8 is **variable-length**:
+
+```text
+1 byte → U+0000 to U+007F
+2 bytes → U+0080 to U+07FF
+3 bytes → U+0800 to U+FFFF
+4 bytes → U+10000 to U+10FFFF
+```
+
+So **UTF-8 means an encoding format, not that every character occupies exactly 8 bits.**
+
+Q3 Performance: When should a developer choose a String Builder over repeated string concatenation, and why?
+
+Ans For a **Java interview**, the key difference is whether you're doing **repeated modifications** to a String.
+
+## String concatenation vs StringBuilder
+
+### 1. Simple concatenation
+
+For a small number of concatenations:
+
+```java
+String name = "Rishi";
+String message = "Hello " + name;
+```
+
+This is perfectly fine and usually the most readable option.
+
+Java's compiler can optimize simple concatenation, and modern Java uses `StringConcatFactory` for many `+` operations.
+
+---
+
+### 2. Repeated concatenation in a loop
+
+Consider:
+
+```java
+String result = "";
+
+for (int i = 0; i < 10000; i++) {
+    result = result + i;
+}
+```
+
+This can be inefficient because `String` is **immutable**.
+
+Conceptually, each operation creates a new String:
+
+```text
+"0"
+   ↓
+"01"
+   ↓
+"012"
+   ↓
+"0123"
+   ↓
+...
+```
+
+The old Strings become eligible for garbage collection.
+
+For large/repeated operations, this can cause:
+
+* More object creation
+* More memory usage
+* More garbage collection
+* Potentially worse performance
+
+Instead, use `StringBuilder`:
+
+```java
+StringBuilder sb = new StringBuilder();
+
+for (int i = 0; i < 10000; i++) {
+    sb.append(i);
+}
+
+String result = sb.toString();
+```
+
+Here, `StringBuilder` maintains a mutable character buffer and modifies it instead of creating a new String for every append.
+
+---
+
+## When should you choose StringBuilder?
+
+Use `StringBuilder` when:
+
+### 1. Building a String inside a loop
+
+```java
+StringBuilder sb = new StringBuilder();
+
+for (String word : words) {
+    sb.append(word);
+}
+```
+
+### 2. Performing many modifications
+
+For example:
+
+```java
+sb.append("Java");
+sb.append(" ");
+sb.append("Developer");
+sb.insert(0, "Senior ");
+sb.delete(0, 7);
+```
+
+### 3. Building large strings
+
+For example:
+
+* Generating JSON/text
+* Creating SQL statements
+* Generating reports
+* Building CSV output
+* Constructing log messages
+* Creating large responses
+
+---
+
+## String vs StringBuilder
+
+| Feature                      | String                    | StringBuilder       |
+| ---------------------------- | ------------------------- | ------------------- |
+| Mutable                      | ❌ No                      | ✅ Yes               |
+| Thread-safe                  | Immutable → safe to share | ❌ Not synchronized  |
+| Repeated modification        | Less suitable             | ✅ Suitable          |
+| Simple concatenation         | ✅ Excellent               | Usually unnecessary |
+| Loop concatenation           | Can be expensive          | ✅ Efficient         |
+| Performance for many appends | Lower                     | Higher              |
+
+---
+
+## What about StringBuffer?
+
+You may get this follow-up in a senior Java interview.
+
+```java
+StringBuilder
+StringBuffer
+```
+
+Both are mutable.
+
+The main difference:
+
+```text
+StringBuilder → not synchronized → generally faster
+StringBuffer  → synchronized → thread-safe
+```
+
+For normal single-threaded string construction, prefer:
+
+```java
+StringBuilder
+```
+
+Use `StringBuffer` only when you specifically need its synchronization semantics.
+
+---
+
+## Important interview point
+
+Don't say:
+
+> "Always use StringBuilder instead of `+`."
+
+That's not correct.
+
+For example:
+
+```java
+String fullName = firstName + " " + lastName;
+```
+
+`+` is perfectly appropriate and much more readable.
+
+Use `StringBuilder` when you're doing **repeated or substantial string construction**, especially inside loops.
+
+### Interview-ready answer
+
+> **"I would use StringBuilder when I'm repeatedly modifying or building a String, especially inside a loop or when constructing a large amount of text. String is immutable, so repeated concatenation can create multiple intermediate String objects and increase memory and GC overhead. StringBuilder maintains a mutable character buffer and performs repeated appends more efficiently. For a few simple concatenations, the `+` operator is preferable because it's concise and modern Java can optimize it."**
+
+
+Q. Manipulation: Given a string "racecar", write pseudocode to determine if it is a palindrome without using built-in reverse functions.
+
+Ans: Sure. The simplest approach is to use **two pointers**: one from the beginning and one from the end.
+
+### Pseudocode
+
+```text
+FUNCTION isPalindrome(str):
+
+    left  = 0
+    right = length(str) - 1
+
+    WHILE left < right:
+
+        IF str[left] != str[right]:
+            RETURN false
+
+        left  = left + 1
+        right = right - 1
+
+    RETURN true
+```
+
+### For `"racecar"`
+
+```text
+r a c e c a r
+↑           ↑
+L           R
+```
+
+Compare:
+
+```text
+r == r  ✓
+a == a  ✓
+c == c  ✓
+e == e  ✓
+```
+
+Now the pointers meet, so:
+
+```text
+racecar → palindrome
+```
+
+### Java implementation
+
+```java
+public static boolean isPalindrome(String str) {
+
+    int left = 0;
+    int right = str.length() - 1;
+
+    while (left < right) {
+
+        if (str.charAt(left) != str.charAt(right)) {
+            return false;
+        }
+
+        left++;
+        right--;
+    }
+
+    return true;
+}
+```
+
+### Complexity
+
+```text
+Time  : O(n)
+Space : O(1)
+```
+
+**Interview explanation:**
+
+> "I use two pointers, one at the beginning and one at the end. I compare the characters at both positions and move the pointers toward the center. If any pair doesn't match, the string isn't a palindrome. If all pairs match, it is a palindrome."
+
+
+Q. Longest Substring without repeating characters
+
+
+Ans This is a very common **Sliding Window** interview problem.
+
+## Problem
+
+Given a string, find the **length of the longest substring that contains no repeated characters**.
+
+For example:
+
+```text
+s = "abcabcbb"
+```
+
+Possible substrings:
+
+```text
+"abc" → length 3
+"bca" → length 3
+"cab" → length 3
+```
+
+The longest length is:
+
+```text
+3
+```
+
+---
+
+## Key point: Substring vs Subsequence
+
+A **substring must be continuous**.
+
+For:
+
+```text
+"abcabcbb"
+```
+
+`"abc"` is a substring.
+
+But:
+
+```text
+"acb"
+```
+
+is not a substring because the characters aren't continuous.
+
+---
+
+# Sliding Window Approach
+
+We maintain:
+
+```text
+left
+right
+```
+
+and a `HashSet` containing the characters currently inside the window.
+
+For example:
+
+```text
+s = "abcabcbb"
+
+       left
+        ↓
+        a b c
+          ↑
+         right
+```
+
+If the next character is not present, expand the window.
+
+If the next character already exists, move `left` forward until the duplicate is removed.
+
+---
+
+## Java Code
+
+```java
+import java.util.*;
+
+public class Solution {
+
+    public int lengthOfLongestSubstring(String s) {
+
+        HashSet<Character> set = new HashSet<>();
+
+        int left = 0;
+        int maxLength = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+
+            char current = s.charAt(right);
+
+            // Duplicate found
+            while (set.contains(current)) {
+                set.remove(s.charAt(left));
+                left++;
+            }
+
+            // Add current character
+            set.add(current);
+
+            // Calculate current window length
+            int length = right - left + 1;
+
+            maxLength = Math.max(maxLength, length);
+        }
+
+        return maxLength;
+    }
+}
+```
+
+## Let's debug `"abcabcbb"`
+
+Initially:
+
+```text
+left = 0
+maxLength = 0
+set = {}
+```
+
+### right = 0
+
+Character:
+
+```text
+a
+```
+
+Not present.
+
+```text
+set = {a}
+```
+
+Window:
+
+```text
+[a]
+```
+
+Length:
+
+```text
+1
+```
+
+`maxLength = 1`
+
+---
+
+### right = 1
+
+Character:
+
+```text
+b
+```
+
+```text
+set = {a,b}
+```
+
+Window:
+
+```text
+[a,b]
+```
+
+Length:
+
+```text
+2
+```
+
+`maxLength = 2`
+
+---
+
+### right = 2
+
+Character:
+
+```text
+c
+```
+
+```text
+set = {a,b,c}
+```
+
+Window:
+
+```text
+[a,b,c]
+```
+
+Length:
+
+```text
+3
+```
+
+`maxLength = 3`
+
+---
+
+### right = 3
+
+Character:
+
+```text
+a
+```
+
+But `a` already exists:
+
+```text
+set = {a,b,c}
+```
+
+So we shrink from the left.
+
+Remove:
+
+```text
+a
+```
+
+Move:
+
+```text
+left = 1
+```
+
+Now:
+
+```text
+set = {b,c}
+```
+
+Add the current `a`:
+
+```text
+set = {b,c,a}
+```
+
+Current window:
+
+```text
+[b,c,a]
+```
+
+Length:
+
+```text
+3
+```
+
+`maxLength` remains `3`.
+
+---
+
+### Final result
+
+The longest substring without repeating characters has length:
+
+```text
+3
+```
+
+Examples:
+
+```text
+"abc"
+"bca"
+"cab"
+```
+
+---
+
+## Another example
+
+```text
+s = "bbbbb"
+```
+
+The only substring without repeating characters is:
+
+```text
+"b"
+```
+
+Therefore:
+
+```text
+answer = 1
+```
+
+Another example:
+
+```text
+s = "pwwkew"
+```
+
+Longest substrings include:
+
+```text
+"wke"
+"kew"
+```
+
+Therefore:
+
+```text
+answer = 3
+```
+
+---
+
+## Complexity
+
+```text
+Time Complexity  : O(n)
+Space Complexity : O(n)
+```
+
+Why is it `O(n)` even though we have a `while` loop?
+
+Because both `left` and `right` only move **forward**. Each character is added to and removed from the `HashSet` at most once.
+
+### Interview answer
+
+> **"I use a sliding window with two pointers and a HashSet. The right pointer expands the window when the character is unique. If a duplicate is found, I move the left pointer forward and remove characters until the duplicate is eliminated. At every step, I calculate the window length and keep the maximum. This gives O(n) time and O(n) space."**
+
+
+
+Q. Minimum window Substring : Search the minimum window in which you have all the characters of a new string
+
+Ans : Yes. This is the classic **Minimum Window Substring** problem.
+
+The wording means:
+
+> Given two strings `S` and `T`, find the **smallest substring of `S`** that contains **all characters of `T`**, including duplicate characters if they exist.
+
+### Example
+
+```text
+S = "ADOBECODEBANC"
+T = "ABC"
+```
+
+We need a window in `S` containing:
+
+```text
+A
+B
+C
+```
+
+Some valid windows are:
+
+```text
+"ADOBEC"
+"CODEBA"
+"EBANC"
+```
+
+The smallest one is:
+
+```text
+"BANC"
+```
+
+So the answer is:
+
+```text
+"BANC"
+```
+
+---
+
+## Important: Character frequency matters
+
+Suppose:
+
+```text
+S = "AAOBECODEBAANC"
+T = "AABC"
+```
+
+`T` requires:
+
+```text
+A → 2 times
+B → 1 time
+C → 1 time
+```
+
+So a valid window must contain **two A's**, one B, and one C.
+
+This is why we use a `HashMap` to store character frequencies.
+
+---
+
+# Sliding Window Approach
+
+We use two pointers:
+
+```text
+left
+right
+```
+
+The `right` pointer expands the window until the window contains all characters of `T`.
+
+Then we move `left` forward to make the window as small as possible.
+
+Pattern:
+
+```text
+Expand → Find valid window → Shrink → Find smaller window
+```
+
+---
+
+# Java Code
+
+```java
+import java.util.*;
+
+public class Solution {
+
+    public String minWindow(String s, String t) {
+
+        if (s.length() < t.length()) {
+            return "";
+        }
+
+        // Store frequency of characters required from t
+        HashMap<Character, Integer> required = new HashMap<>();
+
+        for (char c : t.toCharArray()) {
+
+            if (required.containsKey(c)) {
+                required.put(c, required.get(c) + 1);
+            } else {
+                required.put(c, 1);
+            }
+        }
+
+        HashMap<Character, Integer> window = new HashMap<>();
+
+        int left = 0;
+
+        int requiredCount = t.length();
+        int currentCount = 0;
+
+        int minLength = Integer.MAX_VALUE;
+        int startIndex = 0;
+
+        for (int right = 0; right < s.length(); right++) {
+
+            char c = s.charAt(right);
+
+            // Add character to current window
+            if (window.containsKey(c)) {
+                window.put(c, window.get(c) + 1);
+            } else {
+                window.put(c, 1);
+            }
+
+            // Check whether this character is required
+            if (required.containsKey(c)
+                    && window.get(c) <= required.get(c)) {
+
+                currentCount++;
+            }
+
+            // Window contains all characters of t
+            while (currentCount == requiredCount) {
+
+                int length = right - left + 1;
+
+                // Store smallest window
+                if (length < minLength) {
+                    minLength = length;
+                    startIndex = left;
+                }
+
+                // Remove left character
+                char leftChar = s.charAt(left);
+
+                window.put(
+                    leftChar,
+                    window.get(leftChar) - 1
+                );
+
+                // Removing a required character
+                if (required.containsKey(leftChar)
+                        && window.get(leftChar) < required.get(leftChar)) {
+
+                    currentCount--;
+                }
+
+                left++;
+            }
+        }
+
+        if (minLength == Integer.MAX_VALUE) {
+            return "";
+        }
+
+        return s.substring(
+            startIndex,
+            startIndex + minLength
+        );
+    }
+}
+```
+
+---
+
+# Let's understand with `"ADOBECODEBANC"`
+
+```text
+S = "ADOBECODEBANC"
+T = "ABC"
+```
+
+Required:
+
+```text
+A → 1
+B → 1
+C → 1
+```
+
+We start expanding:
+
+```text
+A
+AD
+ADO
+ADOB
+ADOBE
+ADOBEC
+```
+
+Now we have:
+
+```text
+A ✓
+B ✓
+C ✓
+```
+
+So:
+
+```text
+"ADOBEC"
+```
+
+is a valid window.
+
+Length:
+
+```text
+6
+```
+
+Now shrink from the left.
+
+Eventually we find:
+
+```text
+"BANC"
+```
+
+which contains:
+
+```text
+B ✓
+A ✓
+C ✓
+```
+
+Length:
+
+```text
+4
+```
+
+So:
+
+```text
+Answer = "BANC"
+```
+
+---
+
+# The tricky part
+
+The important condition is:
+
+```java
+if (required.containsKey(c)
+        && window.get(c) <= required.get(c)) {
+    currentCount++;
+}
+```
+
+Suppose:
+
+```text
+T = "AABC"
+```
+
+Required:
+
+```text
+A → 2
+B → 1
+C → 1
+```
+
+If the current window has:
+
+```text
+AAA
+```
+
+The third `A` should **not** increase `currentCount`, because we only need two `A`s.
+
+That's why we check:
+
+```text
+window.get(c) <= required.get(c)
+```
+
+---
+
+## Example with duplicates
+
+```text
+S = "AAOBEC"
+T = "AABC"
+```
+
+Required:
+
+```text
+A → 2
+B → 1
+C → 1
+```
+
+When the window becomes:
+
+```text
+"AAOBEC"
+```
+
+it contains:
+
+```text
+A → 2
+B → 1
+C → 1
+```
+
+So it is valid.
+
+If we remove one `A`, it becomes:
+
+```text
+"AOBEC"
+```
+
+Now we have only one `A`, so the window is no longer valid.
+
+---
+
+# Complexity
+
+```text
+Time Complexity  : O(n)
+Space Complexity : O(k)
+```
+
+where:
+
+* `n` = length of `S`
+* `k` = number of distinct characters being tracked
+
+For standard ASCII characters, the space is effectively `O(1)`.
+
+### Interview explanation
+
+> **"I use a sliding window with two frequency maps. One map stores the required frequency of each character in T, and the other stores the frequency inside the current window of S. I expand the right pointer until the window contains all required characters. Then I move the left pointer forward while the window remains valid, keeping track of the minimum valid window. This gives O(n) time because each pointer moves only forward."**
+
+The key pattern to remember is:
+
+```text
+Minimum window containing all characters
+                ↓
+        Sliding Window
+                ↓
+       Frequency HashMap
+                ↓
+      Expand → Shrink → Min
+```

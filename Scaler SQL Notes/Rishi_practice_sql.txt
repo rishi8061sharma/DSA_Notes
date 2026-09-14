@@ -1,0 +1,51 @@
+show databases;
+create database scaler;
+use scaler;
+CREATE table students(
+	id INT auto_increment,
+    name varchar(50) NOT NULL,
+    email varchar(50) NOT NULL,
+    enrollmentDate timestamp default current_timestamp,
+    psp DECIMAL(3, 2) CHECK(psp BETWEEN 0.00 AND 100.00),
+    batchId INT,
+    isActive BOOLEAN DEFAULT TRUE,
+    primary key (id)
+);
+
+ALTER TABLE students
+  MODIFY COLUMN psp DECIMAL(5,2) CHECK (psp BETWEEN 0.00 AND 100.00);students
+  
+CREATE table departments (
+  deptID INT auto_increment,
+  deptName varchar(50),
+  primary key (deptID)
+);
+
+CREATE table employees (
+	employeeID INT auto_increment,
+    firstName VARCHAR(50) NOT NULL,
+    lastName VARCHAR(50),
+    deptId INT,
+    PRIMARY KEY (employeeID), 
+    FOREIGN KEY (deptID) references departments(deptID) on delete cascade
+);
+
+INSERT INTO departments (deptName) VALUES('TECH'), ('PRODUCT');
+
+INSERT INTO employees (firstName, lastName, deptId) VALUES('Ricky', 'Pointing', 1),
+('Robin', 'Uttapa', 4),
+('Robin', 'Singh', 5),
+('Aakash', 'Choppra', 5),
+('Neha', 'Singh', 6);
+
+delete from departments where deptID=5;
+
+ALTER TABLE employees
+  DROP FOREIGN KEY fk_dept;
+
+-- Step 2: Add it again with ON DELETE SET NULL
+ALTER TABLE employees
+  ADD CONSTRAINT fk_dept
+  FOREIGN KEY (deptID)
+    REFERENCES departments(deptID)
+    ON DELETE SET NULL;
